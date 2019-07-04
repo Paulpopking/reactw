@@ -87,7 +87,7 @@ class Game extends Component {
             return;
         }
         squares[i] = this.state.xIsNext ? 'X' : 'O';
-        this.setState({
+        this.setState((state, props) => ({
             history: history.concat([{
                 squares: squares,
                 coord: {
@@ -96,8 +96,8 @@ class Game extends Component {
                 }
             }]),
             stepNumber: history.length,
-            xIsNext: !this.state.xIsNext,
-        });
+            xIsNext: !state.xIsNext,
+        }));
     }
 
     jumpTo(step) {
@@ -145,7 +145,7 @@ class Game extends Component {
                 </div>
                 <div className="game-info">
                     <div>{status}</div>
-                    <button onClick={() => this.setState({ toggle: !this.state.toggle })}>Toggle Moves</button>
+                    <button onClick={() => this.setState((state, props) => ({toggle: !state.toggle}))}>Toggle Moves</button>
                     <ol>{moves}</ol>
                 </div>
             </div>
