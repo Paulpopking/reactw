@@ -40,7 +40,7 @@ class Board extends Component {
                 key={i % 3}
                 value={this.props.squares[i]}
                 onClick={() => this.props.onClick(i)}
-                style={win ? { background: 'yellow' } : { background: 'white' } }
+                style={win ? { background: 'yellow' } : { background: 'white' }}
             />
         );
     }
@@ -48,7 +48,7 @@ class Board extends Component {
     render() {
         let row, col;
         let rows = [];
-        const [ box1, box2, box3 ] = this.props.winCoord;
+        const [box1, box2, box3] = this.props.winCoord;
         for (row = 0; row < 3; row++) {
             let box = [];
             for (col = 0; col < 3; col++) {
@@ -117,10 +117,10 @@ class Game extends Component {
 
         const moves = toggleHistory.map((step, move) => {
             move = toggle ? history.length - move - 1 : move;
-            const desc = move ? 'Go to move #' + move + ' at row ' + (step.coord.row + 1) + ', col ' + (step.coord.col + 1): 'Go to game start';
+            const desc = move ? 'Go to move #' + move + ' at row ' + (step.coord.row + 1) + ', col ' + (step.coord.col + 1) : 'Go to game start';
             return (
                 <li key={move}>
-                    <button className={ stepNumber === move ? 'bold' : '' } onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <button className={stepNumber === move ? 'bold' : ''} onClick={() => this.jumpTo(move)}>{desc}</button>
                 </li>
             );
         });
@@ -128,10 +128,10 @@ class Game extends Component {
         let status;
         if (winner) {
             status = 'Winner: ' + winner.player;
-        } else if (stepNumber === 9){
+        } else if (stepNumber === 9) {
             status = 'Draw';
         }
-        else{
+        else {
             status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         }
         return (
@@ -145,7 +145,7 @@ class Game extends Component {
                 </div>
                 <div className="game-info">
                     <div>{status}</div>
-                    <button onClick={() => this.setState((state, props) => ({toggle: !state.toggle}))}>Toggle Moves</button>
+                    <button onClick={() => this.setState((state, props) => ({ toggle: !state.toggle }))}>Toggle Moves</button>
                     <ol>{moves}</ol>
                 </div>
             </div>
