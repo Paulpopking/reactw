@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Game from './TicTacToe/TicTacToe';
 import Clock from './Clock/Clock';
+import Tank from './Fish/Fish';
 
 function AppRouter() {
   return (
@@ -11,9 +12,11 @@ function AppRouter() {
       <Link to="/">Home</Link>
       <Link to="/ttt">Tic Tac Toe</Link>
       <Link to="/clock">Clock</Link>
+      <Link to="/tank">Tank</Link>
       <Route exact={true} path="/" component={Home} />
       <Route path="/ttt/" component={Game} />
       <Route path="/clock/" component={Clock} />
+      <Route path="/tank/" component={Tank} />
     </Router>
   );
 }
